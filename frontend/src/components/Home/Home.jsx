@@ -1,10 +1,16 @@
-import React from 'react'
-import {Typography} from "@mui/material"
+import React from "react";
+import { Typography, Box } from "@mui/material";
+import Navbar from "../Navbar/Navbar";
 
 function Home() {
   return (
-    <Typography variant="h3">Home</Typography>
-  )
+    <>
+      <Navbar />
+      <Box>
+        <Typography variant="h3">Home</Typography>
+      </Box>
+    </>
+  );
 }
 
-export default Home
+export default Home;

@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../Navbar/Navbar";
+import { Box, Typography } from "@mui/material";
 
 function Project() {
   return (
-    <div>Project</div>
-  )
+    <>
+      <Navbar />
+      <Box>
+        <Typography variant="h3">Project</Typography>
+      </Box>
+    </>
+  );
 }
 
-export default Project
+export default Project;

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../Navbar/Navbar";
+import Box from "@mui/material/Box";
 
 function Notification() {
   return (
-    <div>Notification</div>
-  )
+    <>
+      <Navbar />
+      <Box>Notification</Box>
+    </>
+  );
 }
 
-export default Notification
+export default Notification;
