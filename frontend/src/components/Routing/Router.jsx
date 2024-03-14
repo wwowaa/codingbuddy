@@ -7,7 +7,6 @@ import {
   chat_route,
   create_post_route,
   feed_route,
-  home_route,
   login_route,
   notification_route,
   profile_find_route,
@@ -16,7 +15,6 @@ import {
   project_route,
   signup_route,
 } from "./Routes";
-import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
 import Profile from "../Profile/Profile";
@@ -34,7 +32,6 @@ function Router() {
   return (
     <Box>
       <Routes>
-        <Route path={home_route} element={<Home />}></Route>
         <Route path={login_route} element={<Login />}></Route>
         <Route path={signup_route} element={<Signup />}></Route>
         <Route path={profile_route} element={<Profile />}></Route>

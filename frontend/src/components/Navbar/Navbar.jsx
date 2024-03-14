@@ -12,13 +12,14 @@ import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import SearchBar from "./SearchBar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   chat_route,
-  home_route,
+  login_route,
   notification_route,
   profile_route,
   project_route,
+  signup_route,
 } from "../Routing/Routes";
 
 const pages = [
@@ -46,6 +47,9 @@ const pages = [
 
 function Navbar() {
   const isWideScreen = useMediaQuery("(min-width:1000px)");
+  const location = useLocation();
+  const isLoginSignupOpen = location.pathname === login_route || location.pathname === signup_route;
+
 
   return (
     <AppBar
@@ -59,7 +63,7 @@ function Navbar() {
         <Toolbar disableGutters>
           <Grid container alignItems="center">
             <Grid item xl={2} lg={2} md={2.5} sm={4}>
-              <Link to={home_route} style={{ textDecoration: "none" }}>
+              <Link to={login_route} style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
                   noWrap
@@ -82,6 +86,7 @@ function Navbar() {
             <Grid item xl={8} lg={8} md={7} sm={6} xs={9}>
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 {pages.map((page) => (
+                  !isLoginSignupOpen && ( // hide some menu items (notifications, chat...) for a login and signup pages 
                   <Link to={page.link} style={{ textDecoration: "none" }}>
                     <Button
                       startIcon={page.icon}
@@ -98,7 +103,7 @@ function Navbar() {
                     >
                       {isWideScreen ? page.label : null}
                     </Button>
-                  </Link>
+                  </Link>)
                 ))}
               </Box>
             </Grid>
